@@ -1,13 +1,19 @@
-dateModified: 1687556929
+dateModified: 1687558113
 email:
   fromEmail: bauerindustries@icloud.com
   fromName: 'crafty coffee'
   transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
 meta:
   __names__:
     2e5ac707-b113-48a6-a39f-cd16b37e8dfd: Common # Common
+    5d3ef853-3a34-4342-a721-1f59d43ad1b0: 'Public Schema' # Public Schema
     25dcf5ff-387f-4f58-b014-15685772b51f: 'crafty coffee' # crafty coffee
     684353c1-0d73-43a1-913e-6d34bbadfea9: 'crafty coffee' # crafty coffee
+    d39bc870-b3d1-4067-a9ec-dce454eb40d9: 'Public Schema'
 system:
   edition: solo
   live: true
