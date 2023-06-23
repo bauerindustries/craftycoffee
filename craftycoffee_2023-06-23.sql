@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.39)
 # Database: craftycoffee
-# Generation Time: 2023-06-23 21:53:33 +0000
+# Generation Time: 2023-06-23 22:01:32 +0000
 # ************************************************************
 
 
@@ -1083,8 +1083,10 @@ VALUES
 	('2e77077c','@craft/web/assets/recententries/dist'),
 	('36829225','@craft/web/assets/axios/dist'),
 	('406b3277','@craft/web/assets/fabric/dist'),
+	('5041a449','@craft/web/assets/utilities/dist'),
 	('68d90560','@craft/web/assets/garnish/dist'),
 	('6fb3ecb','@craft/web/assets/selectize/dist'),
+	('7cfc755','@craft/web/assets/installer/dist'),
 	('82b5dc63','@craft/web/assets/jquerytouchevents/dist'),
 	('82e60301','@craft/web/assets/jquerypayment/dist'),
 	('877101b6','@craft/web/assets/velocity/dist'),
@@ -1246,7 +1248,7 @@ LOCK TABLES `craft_sessions` WRITE;
 
 INSERT INTO `craft_sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,'NI9rMQLcrqhXFgDGNe3sp_w51Y0wy7YD6G_LB0ocKfZ4xCjXoTPeML3PSH-qHdQNrd8zWEsV9qRxI4Rw4tnOvjOW6iaESValjEXZ','2023-06-23 21:50:03','2023-06-23 21:52:42','07108bfd-4cd8-47af-862c-142ea5d9209e');
+	(1,1,'NI9rMQLcrqhXFgDGNe3sp_w51Y0wy7YD6G_LB0ocKfZ4xCjXoTPeML3PSH-qHdQNrd8zWEsV9qRxI4Rw4tnOvjOW6iaESValjEXZ','2023-06-23 21:50:03','2023-06-23 22:00:55','07108bfd-4cd8-47af-862c-142ea5d9209e');
 
 /*!40000 ALTER TABLE `craft_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
