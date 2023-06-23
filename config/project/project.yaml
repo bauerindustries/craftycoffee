@@ -1,17 +1,17 @@
-dateModified: 1687542737
+dateModified: 1687556929
 email:
   fromEmail: bauerindustries@icloud.com
-  fromName: 'craft coffeee'
+  fromName: 'crafty coffee'
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
-    35a3ba73-8300-4dee-acf2-2ac16819c8bf: 'craft coffeee' # craft coffeee
-    958851dd-79e2-483f-8a6d-eeecd38a8043: 'craft coffeee' # craft coffeee
-    ee1d7d23-5118-4ff6-8d3f-4d3138243883: Common # Common
+    2e5ac707-b113-48a6-a39f-cd16b37e8dfd: Common # Common
+    25dcf5ff-387f-4f58-b014-15685772b51f: 'crafty coffee' # crafty coffee
+    684353c1-0d73-43a1-913e-6d34bbadfea9: 'crafty coffee' # crafty coffee
 system:
   edition: solo
   live: true
-  name: 'craft coffeee'
+  name: 'crafty coffee'
   schemaVersion: 4.4.0.4
   timeZone: America/Los_Angeles
 users:
