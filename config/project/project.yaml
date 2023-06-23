@@ -1,0 +1,22 @@
+dateModified: 1687542737
+email:
+  fromEmail: bauerindustries@icloud.com
+  fromName: 'craft coffeee'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    35a3ba73-8300-4dee-acf2-2ac16819c8bf: 'craft coffeee' # craft coffeee
+    958851dd-79e2-483f-8a6d-eeecd38a8043: 'craft coffeee' # craft coffeee
+    ee1d7d23-5118-4ff6-8d3f-4d3138243883: Common # Common
+system:
+  edition: solo
+  live: true
+  name: 'craft coffeee'
+  schemaVersion: 4.4.0.4
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
