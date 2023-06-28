@@ -31,4 +31,5 @@ return GeneralConfig::create()
         // '@webroot' => dirname(__DIR__) . '/web',
         '@web' => App::env('PRIMARY_SITE_URL') ,
     ])
+    ->cpTrigger('admin')
 ;

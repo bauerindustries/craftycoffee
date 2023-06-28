@@ -1,4 +1,4 @@
-dateModified: 1687558680
+dateModified: 1687987608
 email:
   fromEmail: bauerindustries@icloud.com
   fromName: 'crafty coffee'
@@ -12,7 +12,7 @@ meta:
     684353c1-0d73-43a1-913e-6d34bbadfea9: 'crafty coffee' # crafty coffee
     d39bc870-b3d1-4067-a9ec-dce454eb40d9: 'Public Schema' # Public Schema
 system:
-  edition: solo
+  edition: pro
   live: true
   name: 'crafty coffee'
   schemaVersion: 4.4.0.4
@@ -20,6 +20,8 @@ system:
 users:
   allowPublicRegistration: false
   defaultGroup: null
+  fieldLayouts:
+    a7c8ef5d-8a5f-412b-9da9-f267966e991e: null
   photoSubpath: null
   photoVolumeUid: null
   requireEmailVerification: true
