@@ -1,0 +1,22 @@
+columnSuffix: fpawuluh
+contentColumnType: text
+fieldGroup: 7fb8ff63-f6d7-4722-9949-b41918660706 # Drinks
+handle: pageCopy
+instructions: null
+name: 'Page copy'
+searchable: true
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  ckeConfig: 0a4d3e62-b383-4317-83ec-0dab9cfcb550 # Simple
+  columnType: text
+  defaultTransform: null
+  enableSourceEditingForNonAdmins: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

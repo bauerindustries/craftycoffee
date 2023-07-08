@@ -1,16 +1,32 @@
-dateModified: 1687987608
+dateModified: 1688799954
 email:
   fromEmail: bauerindustries@icloud.com
   fromName: 'crafty coffee'
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
+    0a4d3e62-b383-4317-83ec-0dab9cfcb550: Simple # Simple
     2e5ac707-b113-48a6-a39f-cd16b37e8dfd: Common # Common
     5d3ef853-3a34-4342-a721-1f59d43ad1b0: 'Public Schema' # Public Schema
     7f9cf7cc-e388-4dd8-819d-17427ec39847: 'Public Schema' # Public Schema
+    7fb8ff63-f6d7-4722-9949-b41918660706: Drinks # Drinks
     25dcf5ff-387f-4f58-b014-15685772b51f: 'crafty coffee' # crafty coffee
+    73f4252e-66e1-47b9-bca6-9539be73126b: Excerpt # Excerpt
+    698c2c75-2a70-480a-852c-8e6c9dc2f095: 'Page copy' # Page copy
+    986aa4bb-41f0-4f08-a80b-5def7c05e9e2: Default # Default
     684353c1-0d73-43a1-913e-6d34bbadfea9: 'crafty coffee' # crafty coffee
+    b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5: Default # Default
+    cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753: 'News body' # News body
+    d067198d-0272-4232-b2b6-778b2c6a7b10: Drinks # Drinks
+    d35a6ed0-f1a6-4189-a205-ed008cb9e034: News # News
     d39bc870-b3d1-4067-a9ec-dce454eb40d9: 'Public Schema' # Public Schema
+    d9733ce0-764f-4a3b-87c7-78604d73922c: News # News
+    dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3: Introduction # Introduction
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
 system:
   edition: pro
   live: true

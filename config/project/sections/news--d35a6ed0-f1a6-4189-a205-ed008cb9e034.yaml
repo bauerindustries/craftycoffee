@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: news
+name: News
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  684353c1-0d73-43a1-913e-6d34bbadfea9: # crafty coffee
+    enabledByDefault: true
+    hasUrls: true
+    template: news/_entry
+    uriFormat: 'news/{slug}'
+type: channel

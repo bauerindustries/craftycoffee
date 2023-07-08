@@ -1,0 +1,19 @@
+columnSuffix: xuzzitfj
+contentColumnType: text
+fieldGroup: 2e5ac707-b113-48a6-a39f-cd16b37e8dfd # Common
+handle: excerpt
+instructions: null
+name: Excerpt
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

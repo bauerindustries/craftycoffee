@@ -1,0 +1,43 @@
+fieldLayouts:
+  5f6bddac-6954-4bab-a4f6-4fcb7db3b581:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 91318e01-38b5-4b87-b006-7467cc529cc6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 29e8f753-f4d8-4f52-ace5-b2699c6ebe64
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: d35a6ed0-f1a6-4189-a205-ed008cb9e034 # News
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

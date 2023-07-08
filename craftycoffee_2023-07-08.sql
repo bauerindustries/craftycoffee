@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.39)
 # Database: craftycoffee
-# Generation Time: 2023-06-23 22:01:32 +0000
+# Generation Time: 2023-07-08 07:07:25 +0000
 # ************************************************************
 
 
@@ -259,6 +259,21 @@ CREATE TABLE `craft_changedattributes` (
   CONSTRAINT `craft_fk_hyitscdovfkqswqpxjdnmzlnwjvibakmwfvk` FOREIGN KEY (`siteId`) REFERENCES `craft_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_changedattributes` WRITE;
+/*!40000 ALTER TABLE `craft_changedattributes` DISABLE KEYS */;
+
+INSERT INTO `craft_changedattributes` (`elementId`, `siteId`, `attribute`, `dateUpdated`, `propagated`, `userId`)
+VALUES
+	(1,1,'firstName','2023-06-28 21:16:42',0,1),
+	(1,1,'fullName','2023-06-28 21:16:42',0,1),
+	(1,1,'lastName','2023-06-28 21:16:42',0,1),
+	(2,1,'postDate','2023-06-28 21:20:50',0,1),
+	(2,1,'slug','2023-06-28 21:19:57',0,1),
+	(2,1,'title','2023-06-28 21:19:57',0,1),
+	(2,1,'uri','2023-06-28 21:19:57',0,1);
+
+/*!40000 ALTER TABLE `craft_changedattributes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_changedfields
@@ -299,6 +314,10 @@ CREATE TABLE `craft_content` (
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
+  `field_introduction_yetqqcwj` text,
+  `field_pageCopy_fpawuluh` text,
+  `field_excerpt_xuzzitfj` text,
+  `field_newsBody_fnteyxpg` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `craft_idx_xygnluzupetikccyjmzjsazxxfehetageoib` (`elementId`,`siteId`),
   KEY `craft_idx_onggxnrdmibkdotlawvsvapvywwudhivbgwo` (`siteId`),
@@ -310,9 +329,13 @@ CREATE TABLE `craft_content` (
 LOCK TABLES `craft_content` WRITE;
 /*!40000 ALTER TABLE `craft_content` DISABLE KEYS */;
 
-INSERT INTO `craft_content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `craft_content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_introduction_yetqqcwj`, `field_pageCopy_fpawuluh`, `field_excerpt_xuzzitfj`, `field_newsBody_fnteyxpg`)
 VALUES
-	(1,1,1,NULL,'2023-06-23 21:48:48','2023-06-23 21:48:48','6144ea89-1e2f-4b73-8b8c-2327a30c5acb');
+	(1,1,1,NULL,'2023-06-23 21:48:48','2023-06-28 21:28:01','6144ea89-1e2f-4b73-8b8c-2327a30c5acb',NULL,NULL,NULL,NULL),
+	(2,2,1,'Hello world!','2023-06-28 21:19:50','2023-06-28 21:20:50','d11e9fea-4a76-4391-98e1-25efb66a1eaa',NULL,NULL,NULL,NULL),
+	(3,3,1,'Hello world!','2023-06-28 21:20:50','2023-06-28 21:20:50','b1caf811-0962-470d-909a-59c9ca533563',NULL,NULL,NULL,NULL),
+	(4,4,1,NULL,'2023-07-07 22:43:10','2023-07-07 22:43:10','9712a9a1-389a-4ff7-8da9-4e3815cbb516',NULL,NULL,NULL,NULL),
+	(5,5,1,NULL,'2023-07-07 22:44:01','2023-07-07 22:44:01','1f35b75a-53cc-499b-b40c-41d86a1fb966',NULL,NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `craft_content` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -384,6 +407,16 @@ CREATE TABLE `craft_drafts` (
   CONSTRAINT `craft_fk_zvaolywalnemtixhedlfdxudqzyxqvqxgayj` FOREIGN KEY (`canonicalId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_drafts` WRITE;
+/*!40000 ALTER TABLE `craft_drafts` DISABLE KEYS */;
+
+INSERT INTO `craft_drafts` (`id`, `canonicalId`, `creatorId`, `provisional`, `name`, `notes`, `trackChanges`, `dateLastMerged`, `saved`)
+VALUES
+	(1,NULL,1,0,'First draft',NULL,0,NULL,0),
+	(2,NULL,1,0,'First draft',NULL,0,NULL,0);
+
+/*!40000 ALTER TABLE `craft_drafts` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_elements
@@ -427,7 +460,11 @@ LOCK TABLES `craft_elements` WRITE;
 
 INSERT INTO `craft_elements` (`id`, `canonicalId`, `draftId`, `revisionId`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `dateLastMerged`, `dateDeleted`, `uid`)
 VALUES
-	(1,NULL,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2023-06-23 21:48:48','2023-06-23 21:48:48',NULL,NULL,'44885583-3af6-4071-97f5-c1600566a72b');
+	(1,NULL,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2023-06-23 21:48:48','2023-06-28 21:28:01',NULL,NULL,'44885583-3af6-4071-97f5-c1600566a72b'),
+	(2,NULL,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2023-06-28 21:19:50','2023-06-28 21:20:50',NULL,'2023-06-28 21:26:48','4e0c553f-d964-4953-b730-7ff23ce5b29b'),
+	(3,2,NULL,1,1,'craft\\elements\\Entry',1,0,'2023-06-28 21:20:50','2023-06-28 21:20:50',NULL,NULL,'80d1184e-366f-415e-a74b-7579285b84cf'),
+	(4,NULL,1,NULL,2,'craft\\elements\\Entry',1,0,'2023-07-07 22:43:10','2023-07-07 22:43:10',NULL,NULL,'ff191e6e-5214-4c20-a3bf-950d7c9427b4'),
+	(5,NULL,2,NULL,2,'craft\\elements\\Entry',1,0,'2023-07-07 22:44:01','2023-07-07 22:44:01',NULL,NULL,'6d9bd90b-617c-42e9-b780-6bedb123df2a');
 
 /*!40000 ALTER TABLE `craft_elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -463,7 +500,11 @@ LOCK TABLES `craft_elements_sites` WRITE;
 
 INSERT INTO `craft_elements_sites` (`id`, `elementId`, `siteId`, `slug`, `uri`, `enabled`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,1,NULL,NULL,1,'2023-06-23 21:48:48','2023-06-23 21:48:48','de810c46-99ef-4f3e-b148-82dfc793d367');
+	(1,1,1,NULL,NULL,1,'2023-06-23 21:48:48','2023-06-23 21:48:48','de810c46-99ef-4f3e-b148-82dfc793d367'),
+	(2,2,1,'hello-world','hello-world',1,'2023-06-28 21:19:50','2023-06-28 21:19:57','b3fb3987-1916-4382-9770-05cae0612ef8'),
+	(3,3,1,'hello-world','hello-world',1,'2023-06-28 21:20:50','2023-06-28 21:20:50','0f59c2d9-4e08-4e7c-8394-36b21d3357b2'),
+	(4,4,1,'__temp_rcaqdaxgtmszpawzbbydnahyxwkknpxluccr','drinks/__temp_rcaqdaxgtmszpawzbbydnahyxwkknpxluccr',1,'2023-07-07 22:43:10','2023-07-07 22:43:10','5e1a8f28-2dd3-46fd-bedc-8e3413617f43'),
+	(5,5,1,'__temp_kmdklxjxqnvkpiotdvlsymylcfuhwymrsgug','drinks/__temp_kmdklxjxqnvkpiotdvlsymylcfuhwymrsgug',1,'2023-07-07 22:44:01','2023-07-07 22:44:01','ffd9f7df-ef07-48cc-9f99-9ff5c0558f04');
 
 /*!40000 ALTER TABLE `craft_elements_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -499,6 +540,18 @@ CREATE TABLE `craft_entries` (
   CONSTRAINT `craft_fk_ztshrcjmjhpptsssysmlyxiniopdsumgnugp` FOREIGN KEY (`parentId`) REFERENCES `craft_entries` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_entries` WRITE;
+/*!40000 ALTER TABLE `craft_entries` DISABLE KEYS */;
+
+INSERT INTO `craft_entries` (`id`, `sectionId`, `parentId`, `typeId`, `authorId`, `postDate`, `expiryDate`, `deletedWithEntryType`, `dateCreated`, `dateUpdated`)
+VALUES
+	(2,1,NULL,1,1,'2023-06-28 21:20:00',NULL,1,'2023-06-28 21:19:50','2023-06-28 21:20:50'),
+	(3,1,NULL,1,1,'2023-06-28 21:20:00',NULL,NULL,'2023-06-28 21:20:50','2023-06-28 21:20:50'),
+	(4,2,NULL,2,1,'2023-07-07 22:43:10',NULL,NULL,'2023-07-07 22:43:10','2023-07-07 22:43:10'),
+	(5,2,NULL,2,1,'2023-07-07 22:44:01',NULL,NULL,'2023-07-07 22:44:01','2023-07-07 22:44:01');
+
+/*!40000 ALTER TABLE `craft_entries` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_entrytypes
@@ -531,6 +584,17 @@ CREATE TABLE `craft_entrytypes` (
   CONSTRAINT `craft_fk_ezqbhjllewjdevovzesooaoxiryvsvdxekko` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_entrytypes` WRITE;
+/*!40000 ALTER TABLE `craft_entrytypes` DISABLE KEYS */;
+
+INSERT INTO `craft_entrytypes` (`id`, `sectionId`, `fieldLayoutId`, `name`, `handle`, `hasTitleField`, `titleTranslationMethod`, `titleTranslationKeyFormat`, `titleFormat`, `sortOrder`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
+VALUES
+	(1,1,1,'Homepage','default',1,'site',NULL,NULL,1,'2023-06-28 21:19:00','2023-06-28 21:19:24','2023-06-28 21:26:48','135337dd-23fc-408c-ab46-9f4e87a772a2'),
+	(2,2,2,'Default','default',1,'site',NULL,NULL,1,'2023-07-07 21:53:57','2023-07-07 21:53:57',NULL,'b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5'),
+	(3,3,3,'Default','default',1,'site',NULL,NULL,1,'2023-07-08 07:03:05','2023-07-08 07:03:05',NULL,'986aa4bb-41f0-4f08-a80b-5def7c05e9e2');
+
+/*!40000 ALTER TABLE `craft_entrytypes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_fieldgroups
@@ -555,7 +619,9 @@ LOCK TABLES `craft_fieldgroups` WRITE;
 
 INSERT INTO `craft_fieldgroups` (`id`, `name`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,'Common','2023-06-23 21:48:48','2023-06-23 21:48:48',NULL,'2e5ac707-b113-48a6-a39f-cd16b37e8dfd');
+	(1,'Common','2023-06-23 21:48:48','2023-06-23 21:48:48',NULL,'2e5ac707-b113-48a6-a39f-cd16b37e8dfd'),
+	(2,'Drinks','2023-07-07 22:32:05','2023-07-07 22:33:04',NULL,'7fb8ff63-f6d7-4722-9949-b41918660706'),
+	(3,'News','2023-07-08 07:04:02','2023-07-08 07:04:02',NULL,'d9733ce0-764f-4a3b-87c7-78604d73922c');
 
 /*!40000 ALTER TABLE `craft_fieldgroups` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -605,6 +671,17 @@ CREATE TABLE `craft_fieldlayouts` (
   KEY `craft_idx_fknfwigfaklnzdhrtyyuuwbjhastxfnayhar` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_fieldlayouts` WRITE;
+/*!40000 ALTER TABLE `craft_fieldlayouts` DISABLE KEYS */;
+
+INSERT INTO `craft_fieldlayouts` (`id`, `type`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
+VALUES
+	(1,'craft\\elements\\Entry','2023-06-28 21:19:00','2023-06-28 21:19:00','2023-06-28 21:26:48','c5e2d20b-3d11-4045-a063-215d1ba4f9ca'),
+	(2,'craft\\elements\\Entry','2023-07-07 21:53:57','2023-07-07 21:53:57',NULL,'ecc3579d-fd33-4263-8c9a-ae09f137c6c4'),
+	(3,'craft\\elements\\Entry','2023-07-08 07:03:05','2023-07-08 07:03:05',NULL,'5f6bddac-6954-4bab-a4f6-4fcb7db3b581');
+
+/*!40000 ALTER TABLE `craft_fieldlayouts` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_fieldlayouttabs
@@ -628,6 +705,17 @@ CREATE TABLE `craft_fieldlayouttabs` (
   CONSTRAINT `craft_fk_ftawcnjmvfpuurpvxzosxcldgvvcgtszblls` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_fieldlayouttabs` WRITE;
+/*!40000 ALTER TABLE `craft_fieldlayouttabs` DISABLE KEYS */;
+
+INSERT INTO `craft_fieldlayouttabs` (`id`, `layoutId`, `name`, `settings`, `elements`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(2,1,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"14802070-afbe-4d16-91d0-da6c959bd30d\",\"userCondition\":null,\"elementCondition\":null}]',1,'2023-06-28 21:19:24','2023-06-28 21:19:24','0d30295d-bed4-48fc-a0fb-1d6b23b90959'),
+	(4,2,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":\"Drink name\",\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"7509c466-8dcc-452f-a77c-ddf44953bb16\",\"userCondition\":null,\"elementCondition\":null}]',1,'2023-07-07 22:43:22','2023-07-07 22:43:22','264cb0a3-acc5-4873-a843-2c10221439a1'),
+	(5,3,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"91318e01-38b5-4b87-b006-7467cc529cc6\",\"userCondition\":null,\"elementCondition\":null}]',1,'2023-07-08 07:03:05','2023-07-08 07:03:05','29e8f753-f4d8-4f52-ace5-b2699c6ebe64');
+
+/*!40000 ALTER TABLE `craft_fieldlayouttabs` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_fields
@@ -658,6 +746,18 @@ CREATE TABLE `craft_fields` (
   CONSTRAINT `craft_fk_zjtdemkkgdwfkbiunpqeryrlomhrqnaaacys` FOREIGN KEY (`groupId`) REFERENCES `craft_fieldgroups` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_fields` WRITE;
+/*!40000 ALTER TABLE `craft_fields` DISABLE KEYS */;
+
+INSERT INTO `craft_fields` (`id`, `groupId`, `name`, `handle`, `context`, `columnSuffix`, `instructions`, `searchable`, `translationMethod`, `translationKeyFormat`, `type`, `settings`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,2,'Introduction','introduction','global','yetqqcwj','Short sentence at top of drink page',0,'none',NULL,'craft\\fields\\PlainText','{\"byteLimit\":null,\"charLimit\":null,\"code\":false,\"columnType\":null,\"initialRows\":4,\"multiline\":false,\"placeholder\":null,\"uiMode\":\"normal\"}','2023-07-07 22:46:13','2023-07-07 22:46:13','dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3'),
+	(2,2,'Page copy','pageCopy','global','fpawuluh',NULL,1,'none',NULL,'craft\\ckeditor\\Field','{\"availableTransforms\":\"\",\"availableVolumes\":\"\",\"ckeConfig\":\"0a4d3e62-b383-4317-83ec-0dab9cfcb550\",\"columnType\":\"text\",\"defaultTransform\":null,\"enableSourceEditingForNonAdmins\":false,\"purifierConfig\":null,\"purifyHtml\":true,\"showUnpermittedFiles\":false,\"showUnpermittedVolumes\":false,\"showWordCount\":false}','2023-07-08 07:02:02','2023-07-08 07:02:02','698c2c75-2a70-480a-852c-8e6c9dc2f095'),
+	(3,1,'Excerpt','excerpt','global','xuzzitfj',NULL,0,'none',NULL,'craft\\fields\\PlainText','{\"byteLimit\":null,\"charLimit\":null,\"code\":false,\"columnType\":null,\"initialRows\":4,\"multiline\":false,\"placeholder\":null,\"uiMode\":\"normal\"}','2023-07-08 07:04:46','2023-07-08 07:05:38','73f4252e-66e1-47b9-bca6-9539be73126b'),
+	(4,3,'News body','newsBody','global','fnteyxpg',NULL,0,'none',NULL,'craft\\ckeditor\\Field','{\"availableTransforms\":\"\",\"availableVolumes\":\"\",\"ckeConfig\":\"0a4d3e62-b383-4317-83ec-0dab9cfcb550\",\"columnType\":\"text\",\"defaultTransform\":null,\"enableSourceEditingForNonAdmins\":false,\"purifierConfig\":null,\"purifyHtml\":true,\"showUnpermittedFiles\":false,\"showUnpermittedVolumes\":false,\"showWordCount\":false}','2023-07-08 07:05:54','2023-07-08 07:05:54','cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753');
+
+/*!40000 ALTER TABLE `craft_fields` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_globalsets
@@ -701,6 +801,15 @@ CREATE TABLE `craft_gqlschemas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_gqlschemas` WRITE;
+/*!40000 ALTER TABLE `craft_gqlschemas` DISABLE KEYS */;
+
+INSERT INTO `craft_gqlschemas` (`id`, `name`, `scope`, `isPublic`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,'Public Schema','[]',1,'2023-06-24 06:23:59','2023-06-24 06:23:59','7f9cf7cc-e388-4dd8-819d-17427ec39847');
+
+/*!40000 ALTER TABLE `craft_gqlschemas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_gqltokens
@@ -805,7 +914,7 @@ LOCK TABLES `craft_info` WRITE;
 
 INSERT INTO `craft_info` (`id`, `version`, `schemaVersion`, `maintenance`, `configVersion`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'4.4.14','4.4.0.4',0,'seecfaklyhia','3@oevuplqkih','2023-06-23 21:48:48','2023-06-23 21:49:47','6acc31c2-6955-4d4c-ba57-301ec312296f');
+	(1,'4.4.15','4.4.0.4',0,'yhlfaldnwfch','3@dcxsghzemd','2023-06-23 21:48:48','2023-07-08 07:05:54','6acc31c2-6955-4d4c-ba57-301ec312296f');
 
 /*!40000 ALTER TABLE `craft_info` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -930,7 +1039,9 @@ VALUES
 	(27,'craft','m221028_130548_add_canonical_id_index','2023-06-23 21:48:49','2023-06-23 21:48:49','2023-06-23 21:48:49','ec974d73-a6b7-4c53-a97d-de09fcf1ea9d'),
 	(28,'craft','m221118_003031_drop_element_fks','2023-06-23 21:48:49','2023-06-23 21:48:49','2023-06-23 21:48:49','60ed644d-a13a-4d46-bb4c-73981f47b884'),
 	(29,'craft','m230131_120713_asset_indexing_session_new_options','2023-06-23 21:48:49','2023-06-23 21:48:49','2023-06-23 21:48:49','b439c11c-b721-44dc-98a7-4669b178f716'),
-	(30,'craft','m230226_013114_drop_plugin_license_columns','2023-06-23 21:48:49','2023-06-23 21:48:49','2023-06-23 21:48:49','292e582b-283c-413f-a217-07bf30818497');
+	(30,'craft','m230226_013114_drop_plugin_license_columns','2023-06-23 21:48:49','2023-06-23 21:48:49','2023-06-23 21:48:49','292e582b-283c-413f-a217-07bf30818497'),
+	(31,'plugin:ckeditor','Install','2023-07-08 07:00:56','2023-07-08 07:00:56','2023-07-08 07:00:56','fbde3bf8-7c79-4e7a-8020-7920ac79760f'),
+	(32,'plugin:ckeditor','m230408_163704_v3_upgrade','2023-07-08 07:00:56','2023-07-08 07:00:56','2023-07-08 07:00:56','78870018-818d-46db-9627-3a1e5ef199e1');
 
 /*!40000 ALTER TABLE `craft_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -954,6 +1065,15 @@ CREATE TABLE `craft_plugins` (
   UNIQUE KEY `craft_idx_irzzhqsstxusyyhehjlpxyqlncdeycdcvnix` (`handle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_plugins` WRITE;
+/*!40000 ALTER TABLE `craft_plugins` DISABLE KEYS */;
+
+INSERT INTO `craft_plugins` (`id`, `handle`, `version`, `schemaVersion`, `installDate`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,'ckeditor','3.4.0','3.0.0.0','2023-07-08 07:00:56','2023-07-08 07:00:56','2023-07-08 07:00:56','982b8dfe-0182-4aa6-b989-29f41ab8efe9');
+
+/*!40000 ALTER TABLE `craft_plugins` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_projectconfig
@@ -972,16 +1092,236 @@ LOCK TABLES `craft_projectconfig` WRITE;
 
 INSERT INTO `craft_projectconfig` (`path`, `value`)
 VALUES
-	('dateModified','1687556929'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.headingLevels.0','1'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.headingLevels.1','2'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.headingLevels.2','3'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.headingLevels.3','4'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.headingLevels.4','5'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.headingLevels.5','6'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.name','\"Simple\"'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.toolbar.0','\"heading\"'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.toolbar.1','\"|\"'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.toolbar.2','\"bold\"'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.toolbar.3','\"italic\"'),
+	('ckeditor.configs.0a4d3e62-b383-4317-83ec-0dab9cfcb550.toolbar.4','\"link\"'),
+	('dateModified','1688799954'),
 	('email.fromEmail','\"bauerindustries@icloud.com\"'),
 	('email.fromName','\"crafty coffee\"'),
 	('email.transportType','\"craft\\\\mail\\\\transportadapters\\\\Sendmail\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elementCondition','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.autocapitalize','true'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.autocomplete','false'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.autocorrect','true'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.class','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.disabled','false'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.elementCondition','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.id','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.instructions','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.label','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.max','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.min','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.name','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.orientation','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.placeholder','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.readonly','false'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.requirable','false'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.size','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.step','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.tip','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.title','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.type','\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.uid','\"91318e01-38b5-4b87-b006-7467cc529cc6\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.userCondition','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.warning','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.elements.0.width','100'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.name','\"Content\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.uid','\"29e8f753-f4d8-4f52-ace5-b2699c6ebe64\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.fieldLayouts.5f6bddac-6954-4bab-a4f6-4fcb7db3b581.tabs.0.userCondition','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.handle','\"default\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.hasTitleField','true'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.name','\"Default\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.section','\"d35a6ed0-f1a6-4189-a205-ed008cb9e034\"'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.sortOrder','1'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.titleFormat','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.titleTranslationKeyFormat','null'),
+	('entryTypes.986aa4bb-41f0-4f08-a80b-5def7c05e9e2.titleTranslationMethod','\"site\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elementCondition','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.autocapitalize','true'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.autocomplete','false'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.autocorrect','true'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.class','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.disabled','false'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.elementCondition','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.id','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.instructions','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.label','\"Drink name\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.max','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.min','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.name','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.orientation','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.placeholder','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.readonly','false'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.requirable','false'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.size','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.step','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.tip','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.title','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.type','\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.uid','\"7509c466-8dcc-452f-a77c-ddf44953bb16\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.userCondition','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.warning','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.elements.0.width','100'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.name','\"Content\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.uid','\"264cb0a3-acc5-4873-a843-2c10221439a1\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.fieldLayouts.ecc3579d-fd33-4263-8c9a-ae09f137c6c4.tabs.0.userCondition','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.handle','\"default\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.hasTitleField','true'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.name','\"Default\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.section','\"d067198d-0272-4232-b2b6-778b2c6a7b10\"'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.sortOrder','1'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.titleFormat','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.titleTranslationKeyFormat','null'),
+	('entryTypes.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5.titleTranslationMethod','\"site\"'),
 	('fieldGroups.2e5ac707-b113-48a6-a39f-cd16b37e8dfd.name','\"Common\"'),
+	('fieldGroups.7fb8ff63-f6d7-4722-9949-b41918660706.name','\"Drinks\"'),
+	('fieldGroups.d9733ce0-764f-4a3b-87c7-78604d73922c.name','\"News\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.columnSuffix','\"fpawuluh\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.contentColumnType','\"text\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.fieldGroup','\"7fb8ff63-f6d7-4722-9949-b41918660706\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.handle','\"pageCopy\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.instructions','null'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.name','\"Page copy\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.searchable','true'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.availableTransforms','\"\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.availableVolumes','\"\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.ckeConfig','\"0a4d3e62-b383-4317-83ec-0dab9cfcb550\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.columnType','\"text\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.defaultTransform','null'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.enableSourceEditingForNonAdmins','false'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.purifierConfig','null'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.purifyHtml','true'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.showUnpermittedFiles','false'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.showUnpermittedVolumes','false'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.settings.showWordCount','false'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.translationKeyFormat','null'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.translationMethod','\"none\"'),
+	('fields.698c2c75-2a70-480a-852c-8e6c9dc2f095.type','\"craft\\\\ckeditor\\\\Field\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.columnSuffix','\"xuzzitfj\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.contentColumnType','\"text\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.fieldGroup','\"2e5ac707-b113-48a6-a39f-cd16b37e8dfd\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.handle','\"excerpt\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.instructions','null'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.name','\"Excerpt\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.searchable','false'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.byteLimit','null'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.charLimit','null'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.code','false'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.columnType','null'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.initialRows','4'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.multiline','false'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.placeholder','null'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.settings.uiMode','\"normal\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.translationKeyFormat','null'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.translationMethod','\"none\"'),
+	('fields.73f4252e-66e1-47b9-bca6-9539be73126b.type','\"craft\\\\fields\\\\PlainText\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.columnSuffix','\"fnteyxpg\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.contentColumnType','\"text\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.fieldGroup','\"d9733ce0-764f-4a3b-87c7-78604d73922c\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.handle','\"newsBody\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.instructions','null'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.name','\"News body\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.searchable','false'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.availableTransforms','\"\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.availableVolumes','\"\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.ckeConfig','\"0a4d3e62-b383-4317-83ec-0dab9cfcb550\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.columnType','\"text\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.defaultTransform','null'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.enableSourceEditingForNonAdmins','false'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.purifierConfig','null'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.purifyHtml','true'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.showUnpermittedFiles','false'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.showUnpermittedVolumes','false'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.settings.showWordCount','false'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.translationKeyFormat','null'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.translationMethod','\"none\"'),
+	('fields.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753.type','\"craft\\\\ckeditor\\\\Field\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.columnSuffix','\"yetqqcwj\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.contentColumnType','\"text\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.fieldGroup','\"7fb8ff63-f6d7-4722-9949-b41918660706\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.handle','\"introduction\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.instructions','\"Short sentence at top of drink page\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.name','\"Introduction\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.searchable','false'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.byteLimit','null'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.charLimit','null'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.code','false'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.columnType','null'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.initialRows','4'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.multiline','false'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.placeholder','null'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.settings.uiMode','\"normal\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.translationKeyFormat','null'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.translationMethod','\"none\"'),
+	('fields.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3.type','\"craft\\\\fields\\\\PlainText\"'),
+	('graphql.publicToken.enabled','false'),
+	('graphql.publicToken.expiryDate','null'),
+	('graphql.schemas.7f9cf7cc-e388-4dd8-819d-17427ec39847.isPublic','true'),
+	('graphql.schemas.7f9cf7cc-e388-4dd8-819d-17427ec39847.name','\"Public Schema\"'),
+	('meta.__names__.0a4d3e62-b383-4317-83ec-0dab9cfcb550','\"Simple\"'),
 	('meta.__names__.25dcf5ff-387f-4f58-b014-15685772b51f','\"crafty coffee\"'),
 	('meta.__names__.2e5ac707-b113-48a6-a39f-cd16b37e8dfd','\"Common\"'),
+	('meta.__names__.5d3ef853-3a34-4342-a721-1f59d43ad1b0','\"Public Schema\"'),
 	('meta.__names__.684353c1-0d73-43a1-913e-6d34bbadfea9','\"crafty coffee\"'),
+	('meta.__names__.698c2c75-2a70-480a-852c-8e6c9dc2f095','\"Page copy\"'),
+	('meta.__names__.73f4252e-66e1-47b9-bca6-9539be73126b','\"Excerpt\"'),
+	('meta.__names__.7f9cf7cc-e388-4dd8-819d-17427ec39847','\"Public Schema\"'),
+	('meta.__names__.7fb8ff63-f6d7-4722-9949-b41918660706','\"Drinks\"'),
+	('meta.__names__.986aa4bb-41f0-4f08-a80b-5def7c05e9e2','\"Default\"'),
+	('meta.__names__.b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5','\"Default\"'),
+	('meta.__names__.cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753','\"News body\"'),
+	('meta.__names__.d067198d-0272-4232-b2b6-778b2c6a7b10','\"Drinks\"'),
+	('meta.__names__.d35a6ed0-f1a6-4189-a205-ed008cb9e034','\"News\"'),
+	('meta.__names__.d39bc870-b3d1-4067-a9ec-dce454eb40d9','\"Public Schema\"'),
+	('meta.__names__.d9733ce0-764f-4a3b-87c7-78604d73922c','\"News\"'),
+	('meta.__names__.dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3','\"Introduction\"'),
+	('plugins.ckeditor.edition','\"standard\"'),
+	('plugins.ckeditor.enabled','true'),
+	('plugins.ckeditor.schemaVersion','\"3.0.0.0\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.defaultPlacement','\"end\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.enableVersioning','true'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.handle','\"drinks\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.name','\"Drinks\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.previewTargets.0.__assoc__.0.0','\"label\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.previewTargets.0.__assoc__.0.1','\"Primary entry page\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.previewTargets.0.__assoc__.1.0','\"urlFormat\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.previewTargets.0.__assoc__.1.1','\"{url}\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.previewTargets.0.__assoc__.2.0','\"refresh\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.previewTargets.0.__assoc__.2.1','\"1\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.propagationMethod','\"all\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.enabledByDefault','true'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.hasUrls','true'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.template','\"drinks/_entry\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.uriFormat','\"drinks/{slug}\"'),
+	('sections.d067198d-0272-4232-b2b6-778b2c6a7b10.type','\"channel\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.defaultPlacement','\"end\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.enableVersioning','true'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.handle','\"news\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.name','\"News\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.previewTargets.0.__assoc__.0.0','\"label\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.previewTargets.0.__assoc__.0.1','\"Primary entry page\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.previewTargets.0.__assoc__.1.0','\"urlFormat\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.previewTargets.0.__assoc__.1.1','\"{url}\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.previewTargets.0.__assoc__.2.0','\"refresh\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.previewTargets.0.__assoc__.2.1','\"1\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.propagationMethod','\"all\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.enabledByDefault','true'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.hasUrls','true'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.template','\"news/_entry\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.siteSettings.684353c1-0d73-43a1-913e-6d34bbadfea9.uriFormat','\"news/{slug}\"'),
+	('sections.d35a6ed0-f1a6-4189-a205-ed008cb9e034.type','\"channel\"'),
 	('siteGroups.25dcf5ff-387f-4f58-b014-15685772b51f.name','\"crafty coffee\"'),
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.baseUrl','\"$PRIMARY_SITE_URL\"'),
+	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.enabled','true'),
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.handle','\"default\"'),
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.hasUrls','true'),
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.language','\"en-US\"'),
@@ -989,13 +1329,14 @@ VALUES
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.primary','true'),
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.siteGroup','\"25dcf5ff-387f-4f58-b014-15685772b51f\"'),
 	('sites.684353c1-0d73-43a1-913e-6d34bbadfea9.sortOrder','1'),
-	('system.edition','\"solo\"'),
+	('system.edition','\"pro\"'),
 	('system.live','true'),
 	('system.name','\"crafty coffee\"'),
 	('system.schemaVersion','\"4.4.0.4\"'),
 	('system.timeZone','\"America/Los_Angeles\"'),
 	('users.allowPublicRegistration','false'),
 	('users.defaultGroup','null'),
+	('users.fieldLayouts.a7c8ef5d-8a5f-412b-9da9-f267966e991e','null'),
 	('users.photoSubpath','null'),
 	('users.photoVolumeUid','null'),
 	('users.requireEmailVerification','true');
@@ -1078,28 +1419,61 @@ INSERT INTO `craft_resourcepaths` (`hash`, `path`)
 VALUES
 	('1086baca','@craft/web/assets/d3/dist'),
 	('10cd4512','@craft/web/assets/updateswidget/dist'),
+	('1987b0ea','@craft/web/assets/garnish/dist'),
+	('19e21149','@craft/web/assets/generalsettings/dist'),
 	('1be7b37d','@craft/web/assets/iframeresizer/dist'),
+	('1d8e664b','@craft/web/assets/fieldsettings/dist'),
 	('1ee84e9','@craft/web/assets/tailwindreset/dist'),
+	('27b44123','@craft/web/assets/updater/dist'),
 	('2e77077c','@craft/web/assets/recententries/dist'),
+	('313587fd','@craft/web/assets/fabric/dist'),
 	('36829225','@craft/web/assets/axios/dist'),
+	('36b22b2f','@yii/debug/assets'),
+	('3c8acfe','@craft/web/assets/pluginstore/dist'),
 	('406b3277','@craft/web/assets/fabric/dist'),
+	('47dc27af','@craft/web/assets/axios/dist'),
+	('4e99366a','@craft/web/assets/sites/dist'),
 	('5041a449','@craft/web/assets/utilities/dist'),
+	('61d80f40','@craft/web/assets/d3/dist'),
 	('68d90560','@craft/web/assets/garnish/dist'),
+	('6ab906f7','@craft/web/assets/iframeresizer/dist'),
+	('6cd0d3c1','@craft/web/assets/fieldsettings/dist'),
 	('6fb3ecb','@craft/web/assets/selectize/dist'),
+	('70b03163','@craft/web/assets/tailwindreset/dist'),
+	('72961974','@craft/web/assets/pluginstore/dist'),
+	('77a58b41','@craft/web/assets/selectize/dist'),
+	('7bed2909','@craft/web/assets/cp/dist'),
 	('7cfc755','@craft/web/assets/installer/dist'),
 	('82b5dc63','@craft/web/assets/jquerytouchevents/dist'),
 	('82e60301','@craft/web/assets/jquerypayment/dist'),
 	('877101b6','@craft/web/assets/velocity/dist'),
 	('88748e5f','@craft/web/assets/feed/dist'),
+	('930929b2','@craft/web/assets/editsection/dist'),
+	('9351d9ed','@craft/web/assets/vue/dist'),
+	('a0f602ab','@craft/web/assets/elementresizedetector/dist'),
+	('a5161d43','@bower/jquery/dist'),
 	('ab39c83','@craft/web/assets/cp/dist'),
+	('aff18d55','@craft/web/assets/jqueryui/dist'),
+	('b18a5bfe','@craft/web/assets/fileupload/dist'),
 	('b50564df','@craft/web/assets/xregexp/dist'),
 	('b761b31b','@craft/web/assets/craftsupport/dist'),
 	('bebdd9df','@craft/web/assets/picturefill/dist'),
 	('c0d4ee74','@craft/web/assets/fileupload/dist'),
+	('c45bd155','@craft/web/assets/xregexp/dist'),
+	('c8e6f7c2','@craft/web/assets/updates/dist'),
+	('cb5ccd1d','@craft/web/assets/prismjs/dist'),
+	('cfe36c55','@craft/web/assets/picturefill/dist'),
 	('d1a8b721','@craft/web/assets/elementresizedetector/dist'),
 	('d448a8c9','@bower/jquery/dist'),
 	('deaf38df','@craft/web/assets/jqueryui/dist'),
-	('f137a894','@craft/web/assets/dashboard/dist');
+	('e20f6c67','@craft/web/assets/vue/dist'),
+	('e2579c38','@craft/web/assets/editsection/dist'),
+	('ea30abe7','@craft/web/assets/edituser/dist'),
+	('eefbf506','@vendor/yiisoft/yii2/assets'),
+	('f137a894','@craft/web/assets/dashboard/dist'),
+	('f3b8b68b','@craft/web/assets/jquerypayment/dist'),
+	('f3eb69e9','@craft/web/assets/jquerytouchevents/dist'),
+	('f62fb43c','@craft/web/assets/velocity/dist');
 
 /*!40000 ALTER TABLE `craft_resourcepaths` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1123,6 +1497,15 @@ CREATE TABLE `craft_revisions` (
   CONSTRAINT `craft_fk_egkstojrcnxmpanowjzbbnnmvhgwbzxbcieh` FOREIGN KEY (`creatorId`) REFERENCES `craft_users` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_revisions` WRITE;
+/*!40000 ALTER TABLE `craft_revisions` DISABLE KEYS */;
+
+INSERT INTO `craft_revisions` (`id`, `canonicalId`, `creatorId`, `num`, `notes`)
+VALUES
+	(1,2,1,1,'');
+
+/*!40000 ALTER TABLE `craft_revisions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_searchindex
@@ -1146,11 +1529,17 @@ LOCK TABLES `craft_searchindex` WRITE;
 INSERT INTO `craft_searchindex` (`elementId`, `attribute`, `fieldId`, `siteId`, `keywords`)
 VALUES
 	(1,'email',0,1,' bauerindustries icloud com '),
-	(1,'firstname',0,1,''),
-	(1,'fullname',0,1,''),
-	(1,'lastname',0,1,''),
+	(1,'firstname',0,1,' chris '),
+	(1,'fullname',0,1,' chris bauer '),
+	(1,'lastname',0,1,' bauer '),
 	(1,'slug',0,1,''),
-	(1,'username',0,1,' admin ');
+	(1,'username',0,1,' admin '),
+	(2,'slug',0,1,' hello world '),
+	(2,'title',0,1,' hello world '),
+	(4,'slug',0,1,' temp rcaqdaxgtmszpawzbbydnahyxwkknpxluccr '),
+	(4,'title',0,1,''),
+	(5,'slug',0,1,' temp kmdklxjxqnvkpiotdvlsymylcfuhwymrsgug '),
+	(5,'title',0,1,'');
 
 /*!40000 ALTER TABLE `craft_searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1183,6 +1572,17 @@ CREATE TABLE `craft_sections` (
   CONSTRAINT `craft_fk_menmmwtbhlowlftduwmxsxaoypkrkbpxjume` FOREIGN KEY (`structureId`) REFERENCES `craft_structures` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_sections` WRITE;
+/*!40000 ALTER TABLE `craft_sections` DISABLE KEYS */;
+
+INSERT INTO `craft_sections` (`id`, `structureId`, `name`, `handle`, `type`, `enableVersioning`, `propagationMethod`, `defaultPlacement`, `previewTargets`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
+VALUES
+	(1,1,'Homepage','homepage','structure',1,'all','end',NULL,'2023-06-28 21:19:00','2023-06-28 21:19:00','2023-06-28 21:26:48','8587a272-df2b-404d-be8c-1ad5f4842456'),
+	(2,NULL,'Drinks','drinks','channel',1,'all','end','[{\"label\":\"Primary entry page\",\"urlFormat\":\"{url}\",\"refresh\":\"1\"}]','2023-07-07 21:53:57','2023-07-07 21:53:57',NULL,'d067198d-0272-4232-b2b6-778b2c6a7b10'),
+	(3,NULL,'News','news','channel',1,'all','end','[{\"label\":\"Primary entry page\",\"urlFormat\":\"{url}\",\"refresh\":\"1\"}]','2023-07-08 07:03:05','2023-07-08 07:03:05',NULL,'d35a6ed0-f1a6-4189-a205-ed008cb9e034');
+
+/*!40000 ALTER TABLE `craft_sections` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_sections_sites
@@ -1208,6 +1608,17 @@ CREATE TABLE `craft_sections_sites` (
   CONSTRAINT `craft_fk_qoltkjxmzxbbetcldfifhrxgwufcwhjchaxg` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_sections_sites` WRITE;
+/*!40000 ALTER TABLE `craft_sections_sites` DISABLE KEYS */;
+
+INSERT INTO `craft_sections_sites` (`id`, `sectionId`, `siteId`, `hasUrls`, `uriFormat`, `template`, `enabledByDefault`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,1,1,1,'{slug}','_entry',1,'2023-06-28 21:19:00','2023-06-28 21:19:00','c4231c9b-21f5-40f0-9857-b15dfb7c3527'),
+	(2,2,1,1,'drinks/{slug}','drinks/_entry',1,'2023-07-07 21:53:57','2023-07-07 21:53:57','e9995474-d261-4df2-8fd8-1c8f28e4b4cc'),
+	(3,3,1,1,'news/{slug}','news/_entry',1,'2023-07-08 07:03:05','2023-07-08 07:03:05','fe6b44c6-0d28-40f5-9360-98c6b05e58b9');
+
+/*!40000 ALTER TABLE `craft_sections_sites` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_sequences
@@ -1248,7 +1659,8 @@ LOCK TABLES `craft_sessions` WRITE;
 
 INSERT INTO `craft_sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,'NI9rMQLcrqhXFgDGNe3sp_w51Y0wy7YD6G_LB0ocKfZ4xCjXoTPeML3PSH-qHdQNrd8zWEsV9qRxI4Rw4tnOvjOW6iaESValjEXZ','2023-06-23 21:50:03','2023-06-23 22:00:55','07108bfd-4cd8-47af-862c-142ea5d9209e');
+	(1,1,'pxhB1prq1-delwX8fkx4ri-tcbbytpPHsnJ51f-oZQ2Xxe0q2OSrTiCRkabQ6ZrAyjyel2_Laur04-PqjGWcQA5Mmr795WM9k4Bd','2023-06-24 06:09:05','2023-06-24 06:57:32','9b70c4cd-adcf-409e-84b6-7e59742640bd'),
+	(3,1,'cUpD-TPYR2d-JQljmzZbw-bsGd9YASmGeK_0vOfoPZRzDABn4es-Ijqgh1i8FH0yOXc0F6lc0LnJ-PtxXfTBqEKQkClAD2TBqnIv','2023-07-08 07:00:02','2023-07-08 07:07:04','438f191a-fb30-4b73-aa2d-f94840fa35b8');
 
 /*!40000 ALTER TABLE `craft_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1366,6 +1778,16 @@ CREATE TABLE `craft_structureelements` (
   CONSTRAINT `craft_fk_tejrvqnkrdidxnbfrfeqaqbbwgzigyxpeijc` FOREIGN KEY (`structureId`) REFERENCES `craft_structures` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_structureelements` WRITE;
+/*!40000 ALTER TABLE `craft_structureelements` DISABLE KEYS */;
+
+INSERT INTO `craft_structureelements` (`id`, `structureId`, `elementId`, `root`, `lft`, `rgt`, `level`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,1,NULL,1,1,4,0,'2023-06-28 21:19:50','2023-06-28 21:19:50','ef4ee8f2-43c5-4a82-b97e-6c61096fd93f'),
+	(2,1,2,1,2,3,1,'2023-06-28 21:19:50','2023-06-28 21:19:50','33566ead-d499-480a-908a-2bc0374ec879');
+
+/*!40000 ALTER TABLE `craft_structureelements` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_structures
@@ -1384,6 +1806,15 @@ CREATE TABLE `craft_structures` (
   KEY `craft_idx_bvonjwydknbjnrnaacxxkzjfdyjhgitwwjsb` (`dateDeleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_structures` WRITE;
+/*!40000 ALTER TABLE `craft_structures` DISABLE KEYS */;
+
+INSERT INTO `craft_structures` (`id`, `maxLevels`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
+VALUES
+	(1,NULL,'2023-06-28 21:19:00','2023-06-28 21:19:00','2023-06-28 21:26:48','090bc9d3-4d35-4d1d-a39f-e9980d17f50e');
+
+/*!40000 ALTER TABLE `craft_structures` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_systemmessages
@@ -1589,7 +2020,7 @@ LOCK TABLES `craft_userpreferences` WRITE;
 
 INSERT INTO `craft_userpreferences` (`userId`, `preferences`)
 VALUES
-	(1,'{\"language\":\"en-US\"}');
+	(1,'{\"language\":\"en-US\",\"locale\":null,\"weekStartDay\":\"1\",\"alwaysShowFocusRings\":false,\"useShapes\":false,\"underlineLinks\":false,\"notificationDuration\":\"5000\",\"showFieldHandles\":false,\"enableDebugToolbarForSite\":true,\"enableDebugToolbarForCp\":true,\"showExceptionView\":false,\"profileTemplates\":false}');
 
 /*!40000 ALTER TABLE `craft_userpreferences` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1646,7 +2077,7 @@ LOCK TABLES `craft_users` WRITE;
 
 INSERT INTO `craft_users` (`id`, `photoId`, `active`, `pending`, `locked`, `suspended`, `admin`, `username`, `fullName`, `firstName`, `lastName`, `email`, `password`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`)
 VALUES
-	(1,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'bauerindustries@icloud.com','$2y$13$anR.Zds8AiztYtpiexwDw.ONhJUg95etlNXnjruBOmQNXTYWBCq8C','2023-06-23 21:50:03',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2023-06-23 21:48:48','2023-06-23 21:48:48','2023-06-23 21:50:04');
+	(1,NULL,1,0,0,0,1,'admin','Chris Bauer','Chris','Bauer','bauerindustries@icloud.com','$2y$13$anR.Zds8AiztYtpiexwDw.ONhJUg95etlNXnjruBOmQNXTYWBCq8C','2023-07-08 07:00:02',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2023-06-23 21:48:48','2023-06-23 21:48:48','2023-07-08 07:00:02');
 
 /*!40000 ALTER TABLE `craft_users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1732,7 +2163,6 @@ LOCK TABLES `craft_widgets` WRITE;
 
 INSERT INTO `craft_widgets` (`id`, `userId`, `type`, `sortOrder`, `colspan`, `settings`, `enabled`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,'craft\\widgets\\RecentEntries',1,NULL,'{\"siteId\":1,\"section\":\"*\",\"limit\":10}',1,'2023-06-23 21:50:04','2023-06-23 21:50:04','5ae3ffb6-0478-41c4-8c07-db0a7006888a'),
 	(2,1,'craft\\widgets\\CraftSupport',2,NULL,'[]',1,'2023-06-23 21:50:04','2023-06-23 21:50:04','0eabe79a-455a-476d-94c9-6d278edaf3be'),
 	(3,1,'craft\\widgets\\Updates',3,NULL,'[]',1,'2023-06-23 21:50:04','2023-06-23 21:50:04','c1460061-738c-4864-9d80-1dd982dd1b30'),
 	(4,1,'craft\\widgets\\Feed',4,NULL,'{\"url\":\"https:\\/\\/craftcms.com\\/news.rss\",\"title\":\"Craft News\",\"limit\":5}',1,'2023-06-23 21:50:04','2023-06-23 21:50:04','a3a29fa2-e523-4e2a-9984-90fe1aa6eca7');
