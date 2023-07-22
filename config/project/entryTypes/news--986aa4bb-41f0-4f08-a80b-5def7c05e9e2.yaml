@@ -13,7 +13,7 @@ fieldLayouts:
             elementCondition: null
             id: null
             instructions: null
-            label: null
+            label: Headline
             max: null
             min: null
             name: null
@@ -30,12 +30,36 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 73f4252e-66e1-47b9-bca6-9539be73126b # Excerpt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e9834db8-b644-474b-afcc-d1a0536b49b6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753 # News body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1a379f11-d689-4fd3-8e43-96e988e8708d
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 29e8f753-f4d8-4f52-ace5-b2699c6ebe64
         userCondition: null
-handle: default
+handle: news
 hasTitleField: true
-name: Default
+name: News
 section: d35a6ed0-f1a6-4189-a205-ed008cb9e034 # News
 sortOrder: 1
 titleFormat: null
