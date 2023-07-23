@@ -1,4 +1,4 @@
-dateModified: 1688802814
+dateModified: 1690011265
 email:
   fromEmail: bauerindustries@icloud.com
   fromName: 'crafty coffee'
@@ -10,6 +10,7 @@ meta:
     5d3ef853-3a34-4342-a721-1f59d43ad1b0: 'Public Schema' # Public Schema
     7f9cf7cc-e388-4dd8-819d-17427ec39847: 'Public Schema' # Public Schema
     7fb8ff63-f6d7-4722-9949-b41918660706: Drinks # Drinks
+    18d9a6c5-f2cc-4518-a7d0-0254317ec34c: Homepage # Homepage
     25dcf5ff-387f-4f58-b014-15685772b51f: 'crafty coffee' # crafty coffee
     73f4252e-66e1-47b9-bca6-9539be73126b: Excerpt # Excerpt
     698c2c75-2a70-480a-852c-8e6c9dc2f095: 'Page copy' # Page copy
@@ -22,6 +23,7 @@ meta:
     d39bc870-b3d1-4067-a9ec-dce454eb40d9: 'Public Schema' # Public Schema
     d9733ce0-764f-4a3b-87c7-78604d73922c: News # News
     dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3: Introduction # Introduction
+    ffe7f2a0-f138-4ab9-b44d-b139aebec30c: Homepage # Homepage
 plugins:
   ckeditor:
     edition: standard
