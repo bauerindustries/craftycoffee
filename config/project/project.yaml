@@ -1,20 +1,31 @@
-dateModified: 1690011265
+dateModified: 1690099959
 email:
   fromEmail: bauerindustries@icloud.com
   fromName: 'crafty coffee'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  drinks:
+    hasUrls: true
+    name: Drinks
+    settings:
+      path: '@webroot/assets/images/drinks'
+    type: craft\fs\Local
+    url: '@web/assets/images/drinks'
 meta:
   __names__:
     0a4d3e62-b383-4317-83ec-0dab9cfcb550: Simple # Simple
     2e5ac707-b113-48a6-a39f-cd16b37e8dfd: Common # Common
+    4a683cf6-5953-4f09-8452-49db78a17da1: 'Drink image' # Drink image
     5d3ef853-3a34-4342-a721-1f59d43ad1b0: 'Public Schema' # Public Schema
     7f9cf7cc-e388-4dd8-819d-17427ec39847: 'Public Schema' # Public Schema
     7fb8ff63-f6d7-4722-9949-b41918660706: Drinks # Drinks
     18d9a6c5-f2cc-4518-a7d0-0254317ec34c: Homepage # Homepage
     25dcf5ff-387f-4f58-b014-15685772b51f: 'crafty coffee' # crafty coffee
+    33f7304a-36e8-41e2-a1af-285e3885fab8: Drinks # Drinks
     73f4252e-66e1-47b9-bca6-9539be73126b: Excerpt # Excerpt
     698c2c75-2a70-480a-852c-8e6c9dc2f095: 'Page copy' # Page copy
     986aa4bb-41f0-4f08-a80b-5def7c05e9e2: News # News
+    42840bed-00c3-43de-ad99-357a1473c37a: '840x200 Thumb' # 840x200 Thumb
     684353c1-0d73-43a1-913e-6d34bbadfea9: 'crafty coffee' # crafty coffee
     b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5: Drinks # Drinks
     cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753: 'News body' # News body
