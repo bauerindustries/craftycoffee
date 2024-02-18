@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Ace SQL dump
-# Version 20050
+# Version 20062
 #
 # https://sequel-ace.com/
 # https://github.com/Sequel-Ace/Sequel-Ace
 #
 # Host: localhost (MySQL 5.7.39)
 # Database: craftycoffee
-# Generation Time: 2023-10-10 19:00:06 +0000
+# Generation Time: 2024-02-18 07:52:09 +0000
 # ************************************************************
 
 
@@ -277,10 +277,6 @@ VALUES
 	(1,1,'firstName','2023-06-28 21:16:42',0,1),
 	(1,1,'fullName','2023-06-28 21:16:42',0,1),
 	(1,1,'lastName','2023-06-28 21:16:42',0,1),
-	(2,1,'postDate','2023-06-28 21:20:50',0,1),
-	(2,1,'slug','2023-06-28 21:19:57',0,1),
-	(2,1,'title','2023-06-28 21:19:57',0,1),
-	(2,1,'uri','2023-06-28 21:19:57',0,1),
 	(6,1,'postDate','2023-07-08 07:44:13',0,1),
 	(6,1,'slug','2023-07-08 07:42:40',0,1),
 	(6,1,'title','2023-07-08 07:42:40',0,1),
@@ -370,10 +366,6 @@ LOCK TABLES `craft_content` WRITE;
 INSERT INTO `craft_content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_introduction_yetqqcwj`, `field_pageCopy_fpawuluh`, `field_excerpt_xuzzitfj`, `field_newsBody_fnteyxpg`)
 VALUES
 	(1,1,1,NULL,'2023-06-23 21:48:48','2023-06-28 21:28:01','6144ea89-1e2f-4b73-8b8c-2327a30c5acb',NULL,NULL,NULL,NULL),
-	(2,2,1,'Hello world!','2023-06-28 21:19:50','2023-06-28 21:20:50','d11e9fea-4a76-4391-98e1-25efb66a1eaa',NULL,NULL,NULL,NULL),
-	(3,3,1,'Hello world!','2023-06-28 21:20:50','2023-06-28 21:20:50','b1caf811-0962-470d-909a-59c9ca533563',NULL,NULL,NULL,NULL),
-	(4,4,1,NULL,'2023-07-07 22:43:10','2023-07-07 22:43:10','9712a9a1-389a-4ff7-8da9-4e3815cbb516',NULL,NULL,NULL,NULL),
-	(5,5,1,NULL,'2023-07-07 22:44:01','2023-07-07 22:44:01','1f35b75a-53cc-499b-b40c-41d86a1fb966',NULL,NULL,NULL,NULL),
 	(6,6,1,'Espresso','2023-07-08 07:42:28','2023-07-23 08:05:13','e8a21ddd-0e1d-48bf-b239-e4c7cfd6370d','News article lead or intro','<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p>',NULL,NULL),
 	(7,7,1,'Espresso','2023-07-08 07:44:13','2023-07-08 07:44:13','02c7b241-d0de-4bd2-b097-4bdd5e4970fe','News article lead or intro','<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p>',NULL,NULL),
 	(8,8,1,'New coffee coming soon','2023-07-08 07:52:29','2023-07-08 07:54:22','dc4dfbe5-3252-48a8-b75a-5dd5edc05775',NULL,NULL,'Check out the new style coming to Crafty Coffee very soon!','<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur deleniti dignissimos est explicabo, iure laborum minima natus nihil qui repudiandae, velit voluptatum! Animi id illo illum in maiores velit?</p>'),
@@ -459,16 +451,6 @@ CREATE TABLE `craft_drafts` (
   CONSTRAINT `craft_fk_zvaolywalnemtixhedlfdxudqzyxqvqxgayj` FOREIGN KEY (`canonicalId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `craft_drafts` WRITE;
-/*!40000 ALTER TABLE `craft_drafts` DISABLE KEYS */;
-
-INSERT INTO `craft_drafts` (`id`, `canonicalId`, `creatorId`, `provisional`, `name`, `notes`, `trackChanges`, `dateLastMerged`, `saved`)
-VALUES
-	(1,NULL,1,0,'First draft',NULL,0,NULL,0),
-	(2,NULL,1,0,'First draft',NULL,0,NULL,0);
-
-/*!40000 ALTER TABLE `craft_drafts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table craft_elementactivity
@@ -538,10 +520,6 @@ LOCK TABLES `craft_elements` WRITE;
 INSERT INTO `craft_elements` (`id`, `canonicalId`, `draftId`, `revisionId`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `dateLastMerged`, `dateDeleted`, `uid`)
 VALUES
 	(1,NULL,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2023-06-23 21:48:48','2023-06-28 21:28:01',NULL,NULL,'44885583-3af6-4071-97f5-c1600566a72b'),
-	(2,NULL,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2023-06-28 21:19:50','2023-06-28 21:20:50',NULL,'2023-06-28 21:26:48','4e0c553f-d964-4953-b730-7ff23ce5b29b'),
-	(3,2,NULL,1,1,'craft\\elements\\Entry',1,0,'2023-06-28 21:20:50','2023-06-28 21:20:50',NULL,NULL,'80d1184e-366f-415e-a74b-7579285b84cf'),
-	(4,NULL,1,NULL,2,'craft\\elements\\Entry',1,0,'2023-07-07 22:43:10','2023-07-07 22:43:10',NULL,NULL,'ff191e6e-5214-4c20-a3bf-950d7c9427b4'),
-	(5,NULL,2,NULL,2,'craft\\elements\\Entry',1,0,'2023-07-07 22:44:01','2023-07-07 22:44:01',NULL,NULL,'6d9bd90b-617c-42e9-b780-6bedb123df2a'),
 	(6,NULL,NULL,NULL,2,'craft\\elements\\Entry',1,0,'2023-07-08 07:42:28','2023-07-23 08:05:13',NULL,NULL,'b1b7e384-9f48-4c0b-aa55-14cea3c6549c'),
 	(7,6,NULL,2,2,'craft\\elements\\Entry',1,0,'2023-07-08 07:44:13','2023-07-08 07:44:13',NULL,NULL,'641c59fb-33af-4be7-8fd1-0d64e1826218'),
 	(8,NULL,NULL,NULL,3,'craft\\elements\\Entry',1,0,'2023-07-08 07:52:28','2023-07-08 07:54:22',NULL,NULL,'bd9c0908-0e76-4c9f-b03e-eb5d84ab5054'),
@@ -592,10 +570,6 @@ LOCK TABLES `craft_elements_sites` WRITE;
 INSERT INTO `craft_elements_sites` (`id`, `elementId`, `siteId`, `slug`, `uri`, `enabled`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,1,1,NULL,NULL,1,'2023-06-23 21:48:48','2023-06-23 21:48:48','de810c46-99ef-4f3e-b148-82dfc793d367'),
-	(2,2,1,'hello-world','hello-world',1,'2023-06-28 21:19:50','2023-06-28 21:19:57','b3fb3987-1916-4382-9770-05cae0612ef8'),
-	(3,3,1,'hello-world','hello-world',1,'2023-06-28 21:20:50','2023-06-28 21:20:50','0f59c2d9-4e08-4e7c-8394-36b21d3357b2'),
-	(4,4,1,'__temp_rcaqdaxgtmszpawzbbydnahyxwkknpxluccr','drinks/__temp_rcaqdaxgtmszpawzbbydnahyxwkknpxluccr',1,'2023-07-07 22:43:10','2023-07-07 22:43:10','5e1a8f28-2dd3-46fd-bedc-8e3413617f43'),
-	(5,5,1,'__temp_kmdklxjxqnvkpiotdvlsymylcfuhwymrsgug','drinks/__temp_kmdklxjxqnvkpiotdvlsymylcfuhwymrsgug',1,'2023-07-07 22:44:01','2023-07-07 22:44:01','ffd9f7df-ef07-48cc-9f99-9ff5c0558f04'),
 	(6,6,1,'espresso','drinks/espresso',1,'2023-07-08 07:42:28','2023-07-08 07:42:40','92d63e7c-6cbd-48b4-bcca-0df71d162763'),
 	(7,7,1,'espresso','drinks/espresso',1,'2023-07-08 07:44:13','2023-07-08 07:44:13','fd32d02b-d6a3-404a-a651-5163b64abc4f'),
 	(8,8,1,'new-coffee-coming-soon','news/new-coffee-coming-soon',1,'2023-07-08 07:52:28','2023-07-08 07:53:53','7377847a-8d68-414e-b21f-a194118a74c6'),
@@ -650,10 +624,6 @@ LOCK TABLES `craft_entries` WRITE;
 
 INSERT INTO `craft_entries` (`id`, `sectionId`, `parentId`, `typeId`, `authorId`, `postDate`, `expiryDate`, `deletedWithEntryType`, `dateCreated`, `dateUpdated`)
 VALUES
-	(2,1,NULL,1,1,'2023-06-28 21:20:00',NULL,1,'2023-06-28 21:19:50','2023-06-28 21:20:50'),
-	(3,1,NULL,1,1,'2023-06-28 21:20:00',NULL,NULL,'2023-06-28 21:20:50','2023-06-28 21:20:50'),
-	(4,2,NULL,2,1,'2023-07-07 22:43:10',NULL,NULL,'2023-07-07 22:43:10','2023-07-07 22:43:10'),
-	(5,2,NULL,2,1,'2023-07-07 22:44:01',NULL,NULL,'2023-07-07 22:44:01','2023-07-07 22:44:01'),
 	(6,2,NULL,2,1,'2023-07-08 07:44:00',NULL,NULL,'2023-07-08 07:42:28','2023-07-08 07:44:13'),
 	(7,2,NULL,2,1,'2023-07-08 07:44:00',NULL,NULL,'2023-07-08 07:44:13','2023-07-08 07:44:13'),
 	(8,3,NULL,3,1,'2023-07-08 07:54:00',NULL,NULL,'2023-07-08 07:52:28','2023-07-08 07:54:21'),
@@ -709,7 +679,6 @@ LOCK TABLES `craft_entrytypes` WRITE;
 
 INSERT INTO `craft_entrytypes` (`id`, `sectionId`, `fieldLayoutId`, `name`, `handle`, `hasTitleField`, `titleTranslationMethod`, `titleTranslationKeyFormat`, `titleFormat`, `slugTranslationMethod`, `slugTranslationKeyFormat`, `showStatusField`, `sortOrder`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,1,1,'Homepage','default',1,'site',NULL,NULL,'site',NULL,1,1,'2023-06-28 21:19:00','2023-06-28 21:19:24','2023-06-28 21:26:48','135337dd-23fc-408c-ab46-9f4e87a772a2'),
 	(2,2,2,'Drinks','drinks',1,'site',NULL,NULL,'site',NULL,1,1,'2023-07-07 21:53:57','2023-07-08 07:42:21',NULL,'b50feb42-d1c3-4b0a-a7a3-4d49c8e19ea5'),
 	(3,3,3,'News','news',1,'site',NULL,NULL,'site',NULL,1,1,'2023-07-08 07:03:05','2023-07-08 07:53:34',NULL,'986aa4bb-41f0-4f08-a80b-5def7c05e9e2'),
 	(4,4,4,'Homepage','homepage',0,'site',NULL,'{section.name|raw}','site',NULL,1,1,'2023-07-22 07:33:23','2023-07-22 07:33:23',NULL,'ffe7f2a0-f138-4ab9-b44d-b139aebec30c');
@@ -813,7 +782,6 @@ LOCK TABLES `craft_fieldlayouts` WRITE;
 
 INSERT INTO `craft_fieldlayouts` (`id`, `type`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,'craft\\elements\\Entry','2023-06-28 21:19:00','2023-06-28 21:19:00','2023-06-28 21:26:48','c5e2d20b-3d11-4045-a063-215d1ba4f9ca'),
 	(2,'craft\\elements\\Entry','2023-07-07 21:53:57','2023-07-07 21:53:57',NULL,'ecc3579d-fd33-4263-8c9a-ae09f137c6c4'),
 	(3,'craft\\elements\\Entry','2023-07-08 07:03:05','2023-07-08 07:03:05',NULL,'5f6bddac-6954-4bab-a4f6-4fcb7db3b581'),
 	(4,'craft\\elements\\Entry','2023-07-22 07:33:23','2023-07-22 07:33:23',NULL,'f116de9a-3dfb-439c-a7fe-2111845202f9'),
@@ -849,7 +817,6 @@ LOCK TABLES `craft_fieldlayouttabs` WRITE;
 
 INSERT INTO `craft_fieldlayouttabs` (`id`, `layoutId`, `name`, `settings`, `elements`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(2,1,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"14802070-afbe-4d16-91d0-da6c959bd30d\",\"userCondition\":null,\"elementCondition\":null}]',1,'2023-06-28 21:19:24','2023-06-28 21:19:24','0d30295d-bed4-48fc-a0fb-1d6b23b90959'),
 	(7,3,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":\"Headline\",\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"91318e01-38b5-4b87-b006-7467cc529cc6\",\"userCondition\":null,\"elementCondition\":null},{\"type\":\"craft\\\\fieldlayoutelements\\\\CustomField\",\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"required\":false,\"width\":100,\"uid\":\"e9834db8-b644-474b-afcc-d1a0536b49b6\",\"userCondition\":null,\"elementCondition\":null,\"fieldUid\":\"73f4252e-66e1-47b9-bca6-9539be73126b\"},{\"type\":\"craft\\\\fieldlayoutelements\\\\CustomField\",\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"required\":false,\"width\":100,\"uid\":\"1a379f11-d689-4fd3-8e43-96e988e8708d\",\"userCondition\":null,\"elementCondition\":null,\"fieldUid\":\"cb6b466e-f68f-44ae-9fa0-cf6a5ce6e753\"}]',1,'2023-07-08 07:53:34','2023-07-08 07:53:34','29e8f753-f4d8-4f52-ace5-b2699c6ebe64'),
 	(9,4,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\entries\\\\EntryTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"acc06c62-9e69-42fb-a3b4-30cd52caa123\",\"userCondition\":null,\"elementCondition\":null},{\"type\":\"craft\\\\fieldlayoutelements\\\\CustomField\",\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"required\":false,\"width\":100,\"uid\":\"f8b09155-302b-4667-8361-62533eecb984\",\"userCondition\":null,\"elementCondition\":null,\"fieldUid\":\"dd585b1f-baa1-4c7f-ba44-ffdc9ef956f3\"},{\"type\":\"craft\\\\fieldlayoutelements\\\\CustomField\",\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"required\":false,\"width\":100,\"uid\":\"883380f6-6421-449a-81d8-b2389302478d\",\"userCondition\":null,\"elementCondition\":null,\"fieldUid\":\"73f4252e-66e1-47b9-bca6-9539be73126b\"},{\"type\":\"craft\\\\fieldlayoutelements\\\\CustomField\",\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"required\":false,\"width\":100,\"uid\":\"061a4275-cc66-4f22-81f0-8f4605a57398\",\"userCondition\":null,\"elementCondition\":null,\"fieldUid\":\"698c2c75-2a70-480a-852c-8e6c9dc2f095\"}]',1,'2023-07-22 07:34:26','2023-07-22 07:34:26','5b7235f5-d4d3-4922-92e9-9ee90c0a1203'),
 	(12,5,'Content','{\"userCondition\":null,\"elementCondition\":null}','[{\"type\":\"craft\\\\fieldlayoutelements\\\\assets\\\\AssetTitleField\",\"autocomplete\":false,\"class\":null,\"size\":null,\"name\":null,\"autocorrect\":true,\"autocapitalize\":true,\"disabled\":false,\"readonly\":false,\"title\":null,\"placeholder\":null,\"step\":null,\"min\":null,\"max\":null,\"requirable\":false,\"id\":null,\"containerAttributes\":[],\"inputContainerAttributes\":[],\"labelAttributes\":[],\"orientation\":null,\"label\":null,\"instructions\":null,\"tip\":null,\"warning\":null,\"width\":100,\"uid\":\"2b4f338c-415f-4220-a938-b863d3185dd8\",\"userCondition\":null,\"elementCondition\":null}]',1,'2023-07-23 07:48:47','2023-07-23 07:48:47','2aff7332-7ba9-41ed-85d9-728302d372b4'),
@@ -1007,12 +974,12 @@ LOCK TABLES `craft_imagetransformindex` WRITE;
 
 INSERT INTO `craft_imagetransformindex` (`id`, `assetId`, `transformer`, `filename`, `format`, `transformString`, `fileExists`, `inProgress`, `error`, `dateIndexed`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,14,'craft\\imagetransforms\\ImageTransformer','espresso-shot.jpg',NULL,'_34x19_crop_center-center_none',1,0,0,'2023-07-23 07:54:26','2023-07-23 07:54:26','2023-07-23 08:01:32','5d2d7d0d-91a8-4f0e-ae52-0164ad38eee4'),
-	(2,14,'craft\\imagetransforms\\ImageTransformer','espresso-shot.jpg',NULL,'_68x39_crop_center-center_none',1,0,0,'2023-07-23 07:54:26','2023-07-23 07:54:26','2023-07-23 07:54:27','76326f2c-d4c2-4f81-aeae-cd09b5a30313'),
+	(1,14,'craft\\imagetransforms\\ImageTransformer','espresso-shot.jpg',NULL,'_34x19_crop_center-center_none',0,0,1,'2023-07-23 07:54:26','2023-07-23 07:54:26','2023-10-10 19:17:30','5d2d7d0d-91a8-4f0e-ae52-0164ad38eee4'),
+	(2,14,'craft\\imagetransforms\\ImageTransformer','espresso-shot.jpg',NULL,'_68x39_crop_center-center_none',0,0,0,'2023-07-23 07:54:26','2023-07-23 07:54:26','2023-10-10 19:17:30','76326f2c-d4c2-4f81-aeae-cd09b5a30313'),
 	(3,14,'craft\\imagetransforms\\ImageTransformer','espresso-shot.jpg',NULL,'_120x68_crop_center-center_none',1,0,0,'2023-07-23 08:05:14','2023-07-23 08:05:14','2023-07-23 08:05:16','c7827c9a-876a-493e-a785-6344f60f4474'),
 	(4,14,'craft\\imagetransforms\\ImageTransformer','espresso-shot.jpg',NULL,'_240x137_crop_center-center_none',1,0,0,'2023-07-23 08:05:14','2023-07-23 08:05:14','2023-07-23 08:05:15','b0f34235-8c0f-42ed-9b50-82059cc1a454'),
-	(5,17,'craft\\imagetransforms\\ImageTransformer','iced-coffee.jpg',NULL,'_34x27_crop_center-center_none',1,0,0,'2023-07-23 08:13:25','2023-07-23 08:13:25','2023-07-23 08:13:28','d8d7a9f9-2ebc-4d2f-9d49-663d70316d30'),
-	(6,17,'craft\\imagetransforms\\ImageTransformer','iced-coffee.jpg',NULL,'_68x55_crop_center-center_none',1,0,0,'2023-07-23 08:13:25','2023-07-23 08:13:25','2023-07-23 08:13:26','5fbbca14-b2cb-4671-bf4d-6a4924f7d241'),
+	(5,17,'craft\\imagetransforms\\ImageTransformer','iced-coffee.jpg',NULL,'_34x27_crop_center-center_none',0,0,1,'2023-07-23 08:13:25','2023-07-23 08:13:25','2023-10-10 19:17:30','d8d7a9f9-2ebc-4d2f-9d49-663d70316d30'),
+	(6,17,'craft\\imagetransforms\\ImageTransformer','iced-coffee.jpg',NULL,'_68x55_crop_center-center_none',0,0,0,'2023-07-23 08:13:25','2023-07-23 08:13:25','2023-10-10 19:17:30','5fbbca14-b2cb-4671-bf4d-6a4924f7d241'),
 	(7,17,'craft\\imagetransforms\\ImageTransformer','iced-coffee.jpg',NULL,'_120x97_crop_center-center_none',1,0,0,'2023-07-23 08:14:15','2023-07-23 08:14:15','2023-07-23 08:14:17','8267c8ba-5655-4dea-a640-c680f2cc2346'),
 	(8,17,'craft\\imagetransforms\\ImageTransformer','iced-coffee.jpg',NULL,'_240x194_crop_center-center_none',1,0,0,'2023-07-23 08:14:15','2023-07-23 08:14:15','2023-07-23 08:14:17','62102ac6-46a0-46ac-bd6e-d48e575cc27f');
 
@@ -1783,6 +1750,18 @@ CREATE TABLE `craft_queue` (
   KEY `craft_idx_fwqertpmiyazhtwmsiuvxeydbdormdamnsmt` (`channel`,`fail`,`timeUpdated`,`delay`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `craft_queue` WRITE;
+/*!40000 ALTER TABLE `craft_queue` DISABLE KEYS */;
+
+INSERT INTO `craft_queue` (`id`, `channel`, `job`, `description`, `timePushed`, `ttr`, `delay`, `priority`, `dateReserved`, `timeUpdated`, `progress`, `progressLabel`, `attempt`, `fail`, `dateFailed`, `error`)
+VALUES
+	(1,'queue',X'4F3A33393A2263726166745C71756575655C6A6F62735C47656E6572617465496D6167655472616E73666F726D223A343A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A227472616E73666F726D4964223B693A353B7D','t9n:[\"app\",\"Generating image transform\"]',1696965450,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL),
+	(2,'queue',X'4F3A33393A2263726166745C71756575655C6A6F62735C47656E6572617465496D6167655472616E73666F726D223A343A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A227472616E73666F726D4964223B693A363B7D','t9n:[\"app\",\"Generating image transform\"]',1696965450,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL),
+	(3,'queue',X'4F3A33393A2263726166745C71756575655C6A6F62735C47656E6572617465496D6167655472616E73666F726D223A343A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A227472616E73666F726D4964223B693A313B7D','t9n:[\"app\",\"Generating image transform\"]',1696965450,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL),
+	(4,'queue',X'4F3A33393A2263726166745C71756575655C6A6F62735C47656E6572617465496D6167655472616E73666F726D223A343A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A227472616E73666F726D4964223B693A323B7D','t9n:[\"app\",\"Generating image transform\"]',1696965450,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL);
+
+/*!40000 ALTER TABLE `craft_queue` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table craft_relations
@@ -1984,7 +1963,6 @@ LOCK TABLES `craft_revisions` WRITE;
 
 INSERT INTO `craft_revisions` (`id`, `canonicalId`, `creatorId`, `num`, `notes`)
 VALUES
-	(1,2,1,1,''),
 	(2,6,1,1,''),
 	(3,8,1,1,''),
 	(4,10,1,1,NULL),
@@ -2024,12 +2002,6 @@ VALUES
 	(1,'lastname',0,1,' bauer '),
 	(1,'slug',0,1,''),
 	(1,'username',0,1,' admin '),
-	(2,'slug',0,1,' hello world '),
-	(2,'title',0,1,' hello world '),
-	(4,'slug',0,1,' temp rcaqdaxgtmszpawzbbydnahyxwkknpxluccr '),
-	(4,'title',0,1,''),
-	(5,'slug',0,1,' temp kmdklxjxqnvkpiotdvlsymylcfuhwymrsgug '),
-	(5,'title',0,1,''),
 	(6,'field',2,1,' lorem ipsum dolor sit amet consectetur adipisicing elit animi aspernatur deleniti dignissimos est explicabo iure laborum minima natus nihil qui repudiandae velit voluptatum animi id illo illum in maiores velit lorem ipsum dolor sit amet consectetur adipisicing elit animi aspernatur deleniti dignissimos est explicabo iure laborum minima natus nihil qui repudiandae velit voluptatum animi id illo illum in maiores velit lorem ipsum dolor sit amet consectetur adipisicing elit animi aspernatur deleniti dignissimos est explicabo iure laborum minima natus nihil qui repudiandae velit voluptatum animi id illo illum in maiores velit '),
 	(6,'slug',0,1,' espresso '),
 	(6,'title',0,1,' espresso '),
@@ -2089,7 +2061,6 @@ LOCK TABLES `craft_sections` WRITE;
 
 INSERT INTO `craft_sections` (`id`, `structureId`, `name`, `handle`, `type`, `enableVersioning`, `propagationMethod`, `defaultPlacement`, `previewTargets`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,1,'Homepage','homepage','structure',1,'all','end',NULL,'2023-06-28 21:19:00','2023-06-28 21:19:00','2023-06-28 21:26:48','8587a272-df2b-404d-be8c-1ad5f4842456'),
 	(2,NULL,'Drinks','drinks','channel',1,'all','end','[{\"label\":\"Primary entry page\",\"urlFormat\":\"{url}\",\"refresh\":\"1\"}]','2023-07-07 21:53:57','2023-07-07 21:53:57',NULL,'d067198d-0272-4232-b2b6-778b2c6a7b10'),
 	(3,NULL,'News','news','channel',1,'all','end','[{\"label\":\"Primary entry page\",\"urlFormat\":\"{url}\",\"refresh\":\"1\"}]','2023-07-08 07:03:05','2023-07-08 07:03:05',NULL,'d35a6ed0-f1a6-4189-a205-ed008cb9e034'),
 	(4,NULL,'Homepage','homepage','single',1,'all','end','[{\"label\":\"Primary entry page\",\"urlFormat\":\"{url}\",\"refresh\":\"1\"}]','2023-07-22 07:33:23','2023-07-22 07:33:23',NULL,'18d9a6c5-f2cc-4518-a7d0-0254317ec34c');
@@ -2126,7 +2097,6 @@ LOCK TABLES `craft_sections_sites` WRITE;
 
 INSERT INTO `craft_sections_sites` (`id`, `sectionId`, `siteId`, `hasUrls`, `uriFormat`, `template`, `enabledByDefault`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,1,1,'{slug}','_entry',1,'2023-06-28 21:19:00','2023-06-28 21:19:00','c4231c9b-21f5-40f0-9857-b15dfb7c3527'),
 	(2,2,1,1,'drinks/{slug}','drinks/_entry',1,'2023-07-07 21:53:57','2023-07-07 21:53:57','e9995474-d261-4df2-8fd8-1c8f28e4b4cc'),
 	(3,3,1,1,'news/{slug}','news/_entry',1,'2023-07-08 07:03:05','2023-07-08 07:03:05','fe6b44c6-0d28-40f5-9360-98c6b05e58b9'),
 	(4,4,1,1,'__home__','index',1,'2023-07-22 07:33:23','2023-07-22 07:33:23','badead11-0efd-43cd-90b8-d0f3305bffb8');
@@ -2173,7 +2143,6 @@ LOCK TABLES `craft_sessions` WRITE;
 
 INSERT INTO `craft_sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,'pxhB1prq1-delwX8fkx4ri-tcbbytpPHsnJ51f-oZQ2Xxe0q2OSrTiCRkabQ6ZrAyjyel2_Laur04-PqjGWcQA5Mmr795WM9k4Bd','2023-06-24 06:09:05','2023-06-24 06:57:32','9b70c4cd-adcf-409e-84b6-7e59742640bd'),
 	(2,1,'UDzSsejWnR1FNcWJ8V-HlqloJZLBYuU2aiygPNjRYuROoXbwPiQluMzR60s_IECVD2vpmg3m-7cKuA0R4Kn3GJCl-fuViH7ZjDol','2023-07-23 07:20:44','2023-07-23 07:30:46','2b06caee-8ec3-48a0-8c5e-bdf2bc52b9b6');
 
 /*!40000 ALTER TABLE `craft_sessions` ENABLE KEYS */;
@@ -2292,16 +2261,6 @@ CREATE TABLE `craft_structureelements` (
   CONSTRAINT `craft_fk_tejrvqnkrdidxnbfrfeqaqbbwgzigyxpeijc` FOREIGN KEY (`structureId`) REFERENCES `craft_structures` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `craft_structureelements` WRITE;
-/*!40000 ALTER TABLE `craft_structureelements` DISABLE KEYS */;
-
-INSERT INTO `craft_structureelements` (`id`, `structureId`, `elementId`, `root`, `lft`, `rgt`, `level`, `dateCreated`, `dateUpdated`, `uid`)
-VALUES
-	(1,1,NULL,1,1,4,0,'2023-06-28 21:19:50','2023-06-28 21:19:50','ef4ee8f2-43c5-4a82-b97e-6c61096fd93f'),
-	(2,1,2,1,2,3,1,'2023-06-28 21:19:50','2023-06-28 21:19:50','33566ead-d499-480a-908a-2bc0374ec879');
-
-/*!40000 ALTER TABLE `craft_structureelements` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table craft_structures
@@ -2320,15 +2279,6 @@ CREATE TABLE `craft_structures` (
   KEY `craft_idx_bvonjwydknbjnrnaacxxkzjfdyjhgitwwjsb` (`dateDeleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `craft_structures` WRITE;
-/*!40000 ALTER TABLE `craft_structures` DISABLE KEYS */;
-
-INSERT INTO `craft_structures` (`id`, `maxLevels`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
-VALUES
-	(1,NULL,'2023-06-28 21:19:00','2023-06-28 21:19:00','2023-06-28 21:26:48','090bc9d3-4d35-4d1d-a39f-e9980d17f50e');
-
-/*!40000 ALTER TABLE `craft_structures` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table craft_systemmessages
@@ -2591,7 +2541,7 @@ LOCK TABLES `craft_users` WRITE;
 
 INSERT INTO `craft_users` (`id`, `photoId`, `active`, `pending`, `locked`, `suspended`, `admin`, `username`, `fullName`, `firstName`, `lastName`, `email`, `password`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`)
 VALUES
-	(1,NULL,1,0,0,0,1,'admin','Chris Bauer','Chris','Bauer','bauerindustries@icloud.com','$2y$13$anR.Zds8AiztYtpiexwDw.ONhJUg95etlNXnjruBOmQNXTYWBCq8C','2023-10-09 09:22:31',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2023-06-23 21:48:48','2023-06-23 21:48:48','2023-10-09 09:22:31');
+	(1,NULL,1,0,0,0,1,'admin','Chris Bauer','Chris','Bauer','bauerindustries@icloud.com','$2y$13$anR.Zds8AiztYtpiexwDw.ONhJUg95etlNXnjruBOmQNXTYWBCq8C','2023-10-10 19:02:22',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2023-06-23 21:48:48','2023-06-23 21:48:48','2023-10-10 19:02:22');
 
 /*!40000 ALTER TABLE `craft_users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2625,8 +2575,7 @@ LOCK TABLES `craft_volumefolders` WRITE;
 INSERT INTO `craft_volumefolders` (`id`, `parentId`, `volumeId`, `name`, `path`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,NULL,1,'Drinks',NULL,'2023-07-23 07:42:15','2023-07-23 07:44:16','d82c92dc-1157-4a78-bfc7-d15a8b35f24c'),
-	(2,NULL,NULL,'Temporary filesystem',NULL,'2023-07-23 07:53:52','2023-07-23 07:53:52','8cb0ebc4-5850-42bc-a070-8c3908af0634'),
-	(3,2,NULL,'user_1','user_1/','2023-07-23 07:53:52','2023-07-23 07:53:52','e39704f4-45f7-4639-9409-94a2832fd64b');
+	(2,NULL,NULL,'Temporary filesystem',NULL,'2023-07-23 07:53:52','2023-07-23 07:53:52','8cb0ebc4-5850-42bc-a070-8c3908af0634');
 
 /*!40000 ALTER TABLE `craft_volumefolders` ENABLE KEYS */;
 UNLOCK TABLES;
